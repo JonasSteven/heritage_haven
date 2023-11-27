@@ -29,7 +29,15 @@ Route::get('/gallery', function(){
 Route::get('/about', function(){
     return view('about/index');
 });
+
+Route::get('/booking', function () {
+    return view('booking', [
+        "title" => "Booking"
+    ]);
+});
+
 Route::get('/bookingPayment', function(){
     return view('bookingPayment', [
         "title" => "Booking Payment"
-    ]});
+    ]);
+});
