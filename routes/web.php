@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/booking', function () {
+    return view('booking', [
+        "title" => "Booking"
+    ]);
 });
-
 Route::get('/home', function(){
     return view('home/index');
 });
@@ -28,3 +29,7 @@ Route::get('/gallery', function(){
 Route::get('/about', function(){
     return view('about/index');
 });
+Route::get('/bookingPayment', function(){
+    return view('bookingPayment', [
+        "title" => "Booking Payment"
+    ]});

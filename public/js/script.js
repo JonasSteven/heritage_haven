@@ -62,3 +62,8 @@ var swiper = new Swiper(".room-slider", {
         },
     },
 });
+const button = document.getElementById("submit")
+
+button.addEventListener("click",  function(){
+  window.location.href = "/bookingPayment"
+})
