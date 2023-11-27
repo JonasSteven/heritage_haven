@@ -16,7 +16,7 @@
 </head>
 <body>
     {{-- NAVBAR --}}
-    @include('navbar.navbar')
+    @include('user.navbar.navbar')
 
     {{-- CONTENT --}}
     <div class="flex justify-center mb-6 sm:mb-6 mt-15 md:mb-6 lg:mb-0 xl:mb-0 text-center mt-14">
@@ -82,7 +82,7 @@
     </div>
 
     {{-- FOOTER --}}
-    @include('navbar.footer')
+    @include('user.navbar.footer')
 
     <script src="{{ asset('js/script.js') }}"></script>
 </body>

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('user.layouts.main')
 @section('container')
   {{-- <section class="mx-auto mt-10 w-[85%] p-3 flex flex-col">
     <div class="w-full flex bg-slate-300 p-4 gap-20 font-['sahitya'] text-xl">
@@ -72,13 +72,8 @@
         <div class="flex xl:gap-20 lg:gap-16 md:gap-7 sm:gap-5 gap-3">
 
           <div>
-            <label for="firstName" class="block my-3">First Name</label>
-            <input type="text" name="firstName" size="30" class="xl:w-[220px] md:w-[150px] w-[130px] rounded-md p-3 shadow-lg border border-slate-400"
-              required />
-          </div>
-          <div>
-            <label for="lastName" class="block my-3">Last Name</label>
-            <input type="text" name="lastName" size="90" class=" w-[100%] rounded-md p-3 shadow-lg border border-slate-400"
+            <label for="fullName" class="block my-3">Full Name:</label>
+            <input type="text" name="fullName" size="90" class="xl:w-[720px]  w-full rounded-md p-3 shadow-lg border border-slate-400"
               required />
           </div>
         </div>

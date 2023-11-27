@@ -13,31 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/booking', function () {
-    return view('booking', [
-        "title" => "Booking"
-    ]);
-});
-Route::get('/home', function(){
-    return view('home/index');
+Route::get('/', function(){
+    return view('user/home/index');
 });
 
 Route::get('/gallery', function(){
-    return view('gallery/index');
+    return view('user/gallery/index');
 });
 
 Route::get('/about', function(){
-    return view('about/index');
+    return view('user/about/index');
 });
 
 Route::get('/booking', function () {
-    return view('booking', [
+    return view('user/booking/booking', [
         "title" => "Booking"
     ]);
 });
 
 Route::get('/bookingPayment', function(){
-    return view('bookingPayment', [
+    return view('user/booking/bookingPayment', [
         "title" => "Booking Payment"
     ]);
 });

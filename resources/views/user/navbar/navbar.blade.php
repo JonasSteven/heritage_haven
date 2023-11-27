@@ -1,9 +1,9 @@
 <header class="header">
-    <a href="home" class="logo">
+    <a href="/" class="logo">
         <img src="assets/logo.png" alt="">
     </a>
     <nav class="navbar" id="navbar">
-        <a href="home">Home</a>
+        <a href="/">Home</a>
         <a href="#">Room & Suites</a>
         <a href="gallery">Gallery</a>
         <a href="about">About Us</a>

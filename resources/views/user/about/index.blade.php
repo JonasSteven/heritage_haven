@@ -16,7 +16,7 @@
 </head>
 <body>
     {{-- NAVBAR --}}
-    @include('navbar.navbar')
+    @include('user.navbar.navbar')
 
     {{-- IMAGE --}}
     <div class="relative overflow-hidden h-screen bg-cover bg-no-repeat" style="background-position: 50%; background-image: url('assets/about_bg.png'); height: 636px; width: 100% background-size: cover; background-position: center; position: relative; justify-content: space-between; display: flex">
@@ -67,7 +67,7 @@
     </div>
     
     {{-- FOOTER --}}
-    @include('navbar.footer')
+    @include('user.navbar.footer')
 
     <script src="{{ asset('js/script.js') }}"></script>
 </body>

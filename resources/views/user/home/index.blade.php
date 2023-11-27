@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="https://kit.fontawesome.com/99c2f1d2d2.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,12 +13,13 @@
     <link href="https://fonts.googleapis.com/css?family=Sahitya&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Kadwa&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
     @vite('resources/css/app.css')
     <title>Home</title>
 </head>
 <body>
     {{-- NAVBAR --}}
-    @include('navbar.navbar')
+    @include('user.navbar.navbar')
 
     {{-- HOME --}}
     <div class="home" id="home">
@@ -75,41 +77,15 @@
             </div>
 
             <div class="box">
-                <p>Adult <span>*</span></p>
+                <p>Total Guest <span>*</span></p>
                 <select name="adults" id="" class="input">
-                    <option value="1">1 Adult</option>
-                    <option value="2">2 Adults</option>
-                    <option value="3">3 Adults</option>
-                    <option value="4">4 Adults</option>
-                    <option value="5">5 Adults</option>
-                    <option value="6">6 Adults</option>
+                    <option value="" disabled selected>Select your option</option>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
                 </select>
             </div>
-
-            <div class="box">
-                <p>Children <span>*</span></p>
-                <select name="Childrens" id="" class="input">
-                    <option value="1">1 Child</option>
-                    <option value="2">2 Children</option>
-                    <option value="3">3 Children</option>
-                    <option value="4">4 Children</option>
-                    <option value="5">5 Children</option>
-                    <option value="6">6 Children</option>
-                </select>
-            </div>
-
-            <div class="box">
-                <p>Room <span>*</span></p>
-                <select name="Rooms" id="" class="input">
-                    <option value="1">1 Room</option>
-                    <option value="2">2 Rooms</option>
-                    <option value="3">3 Rooms</option>
-                    <option value="4">4 Rooms</option>
-                    <option value="5">5 Rooms</option>
-                    <option value="6">6 Rooms</option>
-                </select>
-            </div>
-
             <input type="submit" value="Check Availability" class="btn">
         </form>
     </div>
@@ -228,7 +204,7 @@
     </div>
 
     {{-- FOOTER --}}
-    @include('navbar.footer')
+    @include('user.navbar.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/script.js') }}"></script>
