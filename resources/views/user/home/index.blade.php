@@ -42,7 +42,7 @@
             <p>Where the past meets the present to create an unforgettable experience for our guests. Situated in the
               heart of a charming historic town, Heritage Heaven Hotel is a sanctuary of luxury and elegance that pays
               homage to the rich heritage and culture of our surroundings.</p>
-            <a href="#" class="btn">Explore</a>
+            <a href="#room" class="btn">Explore</a>
           </div>
         </div>
 
@@ -52,7 +52,7 @@
             <p>Where the past meets the present to create an unforgettable experience for our guests. Situated in the
               heart of a charming historic town, Heritage Heaven Hotel is a sanctuary of luxury and elegance that pays
               homage to the rich heritage and culture of our surroundings.</p>
-            <a href="#" class="btn">Explore</a>
+            <a href="#room" class="btn">Explore</a>
           </div>
         </div>
 
@@ -62,7 +62,7 @@
             <p>Where the past meets the present to create an unforgettable experience for our guests. Situated in the
               heart of a charming historic town, Heritage Heaven Hotel is a sanctuary of luxury and elegance that pays
               homage to the rich heritage and culture of our surroundings.</p>
-            <a href="#" class="btn">Explore</a>
+            <a href="#room" class="btn">Explore</a>
           </div>
         </div>
 
@@ -72,7 +72,7 @@
             <p>Where the past meets the present to create an unforgettable experience for our guests. Situated in the
               heart of a charming historic town, Heritage Heaven Hotel is a sanctuary of luxury and elegance that pays
               homage to the rich heritage and culture of our surroundings.</p>
-            <a href="#" class="btn">Explore</a>
+            <a href="#room" class="btn">Explore</a>
           </div>
         </div>
       </div>
