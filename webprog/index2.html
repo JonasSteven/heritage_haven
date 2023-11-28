@@ -108,9 +108,15 @@
     </div>
     <div>
         <div class="title_btn">Ready To Book?</div>
-        <p class="CI">CheckIn</p>
+        <form action="/action_page.php">
+            <label for="checkin">CheckIn</label>
+            <input type="date" id="checkin" name="checkin"></label>
+        </form>
         <hr>
-        <p class="CO">CheckOut</p>
+        <form action="/action_page.php">
+            <label for="checkout">CheckOut</label>
+            <input type="date" id="checkout" name="checkout"></label>
+        </form>
         <hr>
         <p class="total_person">Total Guest</p>
         <hr><br>
