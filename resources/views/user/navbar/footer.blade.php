@@ -43,7 +43,7 @@
             </li>
 
             <li>
-              <a href="#" class="hover:text-[#D9D9D9]">
+              <a href="room" class="hover:text-[#D9D9D9]">
                 Room & Suits
               </a>
             </li>
