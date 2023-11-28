@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/home', function () {
+    return view('admin.home.index');
+});
+Route::resource('/rooms', RoomController::class);
+Route::resource('/galleries', GalleryController::class);
+Route::resource('/payments', PaymentController::class);
+Route::resource('/bookings', BookingController::class);
 
 Route::get('/', [FrontController::class, 'home']);
 
