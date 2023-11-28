@@ -4,7 +4,7 @@
     </a>
     <nav class="navbar" id="navbar">
         <a href="/">Home</a>
-        <a href="#">Room & Suites</a>
+        <a href="room">Room & Suites</a>
         <a href="gallery">Gallery</a>
         <a href="about">About Us</a>
         <a href="#" class="btn">Book Now</a>

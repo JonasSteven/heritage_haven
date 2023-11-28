@@ -14,6 +14,19 @@ class FrontController extends Controller
         ]);
     }
 
+    public function room(){
+        return view('user/room/index', [
+            'rooms' => Room::all()
+        ]);
+    }
+
+    public function roomDetail(Room $id){
+        // dd($room);
+        return view('user/room/detail', [
+            'room' => $id
+        ]);
+    }
+
     public function gallery(){
         return view('user/gallery/index', [
             'galleries' => Gallery::all()

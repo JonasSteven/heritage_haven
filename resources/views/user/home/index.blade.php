@@ -178,7 +178,7 @@
             <div class="content">
               <h3>{{ $room->roomType }}</h3>
               <p>{{ $room->roomDesc }}</p>
-              <a href="#" class="btn">Learn More</a>
+              <a href="{{ route('detail', ['id' => $room->id]) }}" class="btn">Learn More</a>
             </div>
           </div>
         @endforeach

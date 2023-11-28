@@ -1,0 +1,45 @@
+.container{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+
+.about_tag{
+  text-decoration: underline #FF0000;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 40px;
+}
+
+.section{
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  gap: 4px;
+  grid-auto-flow: column;
+}
+
+.name{
+  font-size: 30px;
+  font-family: Inter;
+  font-weight: Regular;
+}
+
+.btnMore{
+  width: 166px;
+  height: 53px;
+  background-color: #8E732D;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+}
+
+.btnMore a{
+  color: white;
+  text-decoration: none;
+  font-family: Inter;
+  font-weight: Regular;
+}
+
