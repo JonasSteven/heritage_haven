@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -11,7 +12,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.payment.index', [
+            'payments' => Payment::all()
+        ]);
     }
 
     /**
@@ -19,7 +22,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.payment.create');
     }
 
     /**
@@ -27,15 +30,26 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'paymentMethod' => 'required'
+        ]);
+
+        $input = $request->all();
+        Payment::create($input);
+
+        return redirect('/payments')->with('success', 'Payment Added !!!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $payments = Payment::find($id);
+
+        return view('admin.payment.show', [
+            'payments' => $payments
+        ]);
     }
 
     /**
@@ -43,22 +57,37 @@ class PaymentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $payments = Payment::find($id);
+        
+        return view('admin.payment.edit', [
+            'payments' => $payments
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $payments = Payment::find($id);
+
+        $request->validate([
+            'paymentMethod' => 'required'
+        ]);
+
+        $input = $request->all();
+        $payments->update($input);
+
+        return redirect('/payments')->with('success', 'Payment Updated !!!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        Payment::destroy($id);
+
+        return redirect('/payments')->with('success', 'Payment Deleted !!!');
     }
 }

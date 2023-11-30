@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         Room::create([
             'roomType' => 'Queen Size',
             'roomImage' => 'http://drive.google.com/uc?export=view&id=1H-K_Y1HbFOF8IXawuCqHVDx1oqtIR0vu',
-            'roomDesc' => 'Experience exceptional comfort in our spacious and elegant King Room. With modern decor, a comfortable king-size bed, and beautiful views',
+            'roomDesc' => 'Experience exceptional comfort in our spacious and elegant Queen Room. With modern decor, a comfortable queen-size bed, and beautiful views',
             'roomPrice' => 3000000,
             'roomQuantity' => 15
         ]);
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
         Room::create([
             'roomType' => 'Standard Size',
             'roomImage' => 'http://drive.google.com/uc?export=view&id=1eEG66nA2_jMdoAhVtGltMoEwhqGvg0Xr',
-            'roomDesc' => 'Experience exceptional comfort in our spacious and elegant King Room. With modern decor, a comfortable king-size bed, and beautiful views',
+            'roomDesc' => 'Experience exceptional comfort in our spacious and elegant Standard Room. With modern decor, a comfortable standard-size bed, and beautiful views',
             'roomPrice' => 1000000,
             'roomQuantity' => 20
         ]);

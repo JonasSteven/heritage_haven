@@ -8,7 +8,7 @@
                         <h2>Room CRUD (Create, Read, Update and Delete)</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('rooms/create') }}" class="btn btn-success btn-sm" title="Add New Room">
+                        <a href="{{ url('/rooms/create') }}" class="btn btn-success btn-sm" title="Add New Room">
                             Add New Room
                         </a>
                         <br/>

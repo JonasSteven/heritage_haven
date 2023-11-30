@@ -11,13 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" type="image/x-icon" href="/images/logo.png">
+  <link rel = "icon" href = "{{ asset('assets/logo.png') }}">
 
 
   <link href="{{ asset('css/main2.css') }}" rel="stylesheet" />
 
   <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-  <title>sdfjkasdjfk</title>
+  <title>Detail {{ $room->roomType }} Room</title>
   @vite('resources/css/app.css')
 </head>
 

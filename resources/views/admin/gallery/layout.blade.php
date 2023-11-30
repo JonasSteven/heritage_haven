@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room CRUD</title>
+    <title>Gallery CRUD</title>
     <link rel = "icon" href = "{{ asset('assets/logo.png') }}">
     <link rel="stylesheet" href="{{ asset('css/styleAdmHome.css') }}">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -47,7 +47,7 @@
           </div>
         </ul>
       </nav> --}}
-    <div class="room_container">
+    <div class="gallery_container">
         @yield('content')
     </div>
 </body>

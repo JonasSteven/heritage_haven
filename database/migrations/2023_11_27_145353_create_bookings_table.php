@@ -26,6 +26,7 @@ return new class extends Migration
             $table->integer('totalGuest');
             $table->unsignedBigInteger('room_id');
             $table->foreign('room_id')->references('id')->on('rooms')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('attendStatus');
             $table->timestamps();
         });
     }

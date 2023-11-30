@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -11,7 +12,9 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.gallery.index', [
+            'galleries' => Gallery::all()
+        ]);
     }
 
     /**
@@ -19,7 +22,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.gallery.create');
     }
 
     /**
@@ -27,23 +30,39 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'imageName' => 'required',
+            'image' => 'required|url',
+        ]);
+
+        $input = $request->all();
+        Gallery::create($input);
+
+        return redirect('/galleries')->with('success', 'Gallery Added !!!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $galleries = Gallery::find($id);
+
+        return view('admin.gallery.show', [
+            'galleries' => $galleries
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $galleries = Gallery::find($id);
+
+        return view('admin.gallery.edit', [
+            'galleries' => $galleries
+        ]);
     }
 
     /**
@@ -51,14 +70,26 @@ class GalleryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $galleries = Gallery::find($id);
+
+        $request->validate([
+            'imageName' => 'required',
+            'image' => 'required|url',
+        ]);
+
+        $input = $request->all();
+        $galleries->update($input);
+
+        return redirect('/galleries')->with('success', 'Gallery Updated !!!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        Gallery::destroy($id);
+
+        return redirect('/galleries')->with('success', 'Gallery Deleted !!!');
     }
 }

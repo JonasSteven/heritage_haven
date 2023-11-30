@@ -39,7 +39,7 @@
         <br>
         <input type="submit" value="Save" class="btn btn-success"></br>
       </form></br>
-      <a class="btn btn-primary" href="{{ url('/admin/banners') }}"> Back</a>
+      <a class="btn btn-primary" href="{{ url('/rooms') }}"> Back</a>
     
   </div>
 </div>

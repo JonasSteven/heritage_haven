@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -11,7 +13,9 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.booking.index', [
+            'bookings' => Booking::all()
+        ]);
     }
 
     /**
@@ -49,9 +53,20 @@ class BookingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Booking $booking)
     {
-        //
+        if(isset($request->action)){
+            if($request->action == 'checkIn'){
+                Booking::where('id', $booking->id)->update(['attendStatus' => 'Check In']);
+            }
+            else if($request->action == 'checkOut'){
+                Booking::where('id', $booking->id)->update(['attendStatus' => 'Check Out']);
+                $book = Booking::find($booking->id);
+                Room::where('id', $book->room_id)->increment('roomQuantity', 1);
+            }
+        }
+
+        return back();
     }
 
     /**
