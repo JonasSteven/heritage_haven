@@ -1,7 +1,13 @@
+@php
+  $getCheckInDay = date('l', strtotime($checkInDate));
+  $getCheckOutDay = date('l', strtotime($checkOutDate));
+  $total = number_format($totalCharges, 0, ',', '.');
+@endphp
+
 @extends('user.layouts.main')
 @section('container')
   <section class="mx-auto w-[85%] p-3 flex flex-col">
-    <h1 class="text-center p-3 bg-slate-100 font-['Sahitya']">The reservation will be closed in 05.00</h1>
+    {{-- <h1 class="text-center p-3 bg-slate-100 font-['Sahitya']">The reservation will be closed in 05.00</h1> --}}
     <h2 class="my-5 font-semibold text-center md:text-left">Stay Summary: Heritage haven</h2>
     {{-- <div class="w-full bg-slate-100 p-7 flex gap-5">
       <img src="img/img1.png" width="280" alt="" />
@@ -18,15 +24,15 @@
       <div class="max-w-screen px-4 py-8 mx-auto sm:py-0 sm:mt-5 sm:px-6 lg:px-8 bg-gray-100">
         <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
           <div class="grid p-6 rounded place-content-center ">
-            <img src="img/img1.png" alt="">
+            <img src="{{ $room->roomImage }}" alt="">
           </div>
 
           <div class="lg:col-span-2 lg:py-8">
-            <h1 class="text-lg md:text-2xl font-semibold my-4">Fri, 20 oct 2023 / Fri, 20 oct 2023</h1>
-            <h3><span class="font-bold">Total Guest: </span> 4 People</h3>
-            <h5><span class="font-bold">Room Type:</span> King Size</h5>
+            <h1 class="text-lg md:text-2xl font-semibold my-4">@php echo $getCheckInDay @endphp, {{ $checkInDate }} / @php echo $getCheckOutDay @endphp, {{ $checkOutDate }}</h1>
+            <h3><span class="font-bold">Total Guest: </span> {{ $totalGuest }}</h3>
+            <h5><span class="font-bold">Room Type: </span> {{ $room->roomType }}</h5>
             <div class="h-[2px] w-full bg-slate-300 my-3"></div>
-            <h1 class="text-center md:text-right font-['sahitya'] font-light md:text-xl text-lg"><span class="font-bold">Total Charges</span>: IDR 5,000,000.00</h1>
+            <h1 class="text-center md:text-right font-['sahitya'] font-light md:text-xl text-lg"><span class="font-bold">Total Charges</span>: IDR {{ $total }}</h1>
           </div>
         </div>
       </div>
@@ -41,7 +47,7 @@
 
         <label for="paymentMethod" class="block my-3">Choose Payment Method:</label>
         <select id="payment" name="paymentMethod" class="md:w-[600px]  w-[100%] p-3 border rounded-md border-slate-400 ">
-          <option value="" disabled selected>Select your option</option>
+          <option disabled selected>Select your option</option>
           <option value="volvo">MasterCard</option>
           <option value="saab">VisaCard</option>
         </select>
