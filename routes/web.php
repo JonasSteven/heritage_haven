@@ -35,7 +35,8 @@ Route::get('/gallery', [FrontController::class, 'gallery']);
 
 Route::get('/about', [FrontController::class, 'about']);
 
-Route::get('/booking', [FrontController::class, 'booking']);
+Route::get('/booking/{id}', [FrontController::class, 'booking']);
+// Route::get('/booking/{id}', [FrontController::class])
 
 Route::get('/bookingPayment', [FrontController::class, 'bookingPayment']);
 

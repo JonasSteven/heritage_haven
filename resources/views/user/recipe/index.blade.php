@@ -5,7 +5,7 @@
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
       <div class="flex items-center gap-3">
         <div class="h-8 w-2 rounded-lg bg-primary"></div>
-        <h2 class="text-3xl font-['Inter'] sm:text-3xl">Recipe</h2>
+        <h2 class="text-3xl font-['Inter'] sm:text-3xl">Receipt</h2>
       </div>
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 lg:mt-5">
 

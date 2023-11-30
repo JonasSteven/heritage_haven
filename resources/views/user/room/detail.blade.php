@@ -421,11 +421,11 @@
           <div class="relative overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full lg:py-10">
             <h1 class="text-2xl font-['sahitya'] bg-slate-100 p-2 text-center">Ready to Book?</h1>
             <div>
-              <form action="">
+              <form action="/booking" method="GET">
                 <div class="box flex flex-col justify-between p-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Check In <span>*</span></p>
-                    <input type="date" class="input font-['sahitya']">
+                    <input type="date" class="input font-['sahitya']" name="checkIn" required>
                   </div>
 
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
@@ -434,7 +434,7 @@
                 <div class="box flex flex-col justify-between px-5 mb-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Check Out <span>*</span></p>
-                    <input type="date" class="input font-['sahitya']">
+                    <input type="date" class="input font-['sahitya']" name="checkOut" required>
                   </div>
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
@@ -442,7 +442,7 @@
                 <div class="box flex-col justify-between px-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Total Guest <span>*</span></p>
-                    <select name="adults" id="" class="input font-['sahitya']">
+                    <select name="guest" id="" class="input font-['sahitya']" required>
                       <option value="" disabled selected>Select your option</option>
                       <option value="1">1 Person</option>
                       <option value="2">2 People</option>

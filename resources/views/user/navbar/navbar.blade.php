@@ -7,7 +7,7 @@
         <a href="/room">Room & Suites</a>
         <a href="/gallery">Gallery</a>
         <a href="/about">About Us</a>
-        <a href="#" class="btn">Book Now</a>
+        <a href="/room" class="btn">Book Now</a>
         <i class="fas fa-times" onclick="closemenu()"></i>
     </nav>
 

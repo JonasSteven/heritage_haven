@@ -85,28 +85,47 @@
 
   {{-- CHECK AVAILABILITY --}}
   <div class="availability">
-    <form action="">
+    <form action="/availability" method="GET">
+      @csrf
       <div class="box">
         <p>Check In <span>*</span></p>
-        <input type="date" class="input">
+        <input type="date" class="input" name="checkInDate" value="{{ old('checkInDate') }}">
+        @error('checkInDate')
+          <div class="text-red-600 font-bold font-['Poppins']">
+            {{ $message }}
+          </div>
+        @enderror
       </div>
 
       <div class="box">
         <p>Check Out <span>*</span></p>
-        <input type="date" class="input">
+        <input type="date" class="input" name="checkOutDate" value="{{ old('checkOutDate') }}">
+        @error('checkOutDate')
+          <div class="text-red-600 font-bold font-['Poppins']">
+            {{ $message }}
+          </div>
+        @enderror
       </div>
 
       <div class="box">
         <p>Total Guest <span>*</span></p>
-        <select name="adults" id="" class="input">
-          <option value="" disabled selected>Select your option</option>
-          <option value="1">1 Person</option>
-          <option value="2">2 People</option>
-          <option value="3">3 People</option>
-          <option value="4">4 People</option>
+        <select name="totalGuest" id="" class="input">
+          <option disabled selected>Select your option</option>
+          <option value="1" {{ old('totalGuest') == 1 ? 'selected' : '' }}>1 Person</option>
+          <option value="2" {{ old('totalGuest') == 2 ? 'selected' : '' }}>2 People</option>
+          <option value="3" {{ old('totalGuest') == 3 ? 'selected' : '' }}>3 People</option>
+          <option value="4" {{ old('totalGuest') == 4 ? 'selected' : '' }}>4 People</option>
         </select>
+        @error('totalGuest')
+          <div class="text-red-600 font-bold font-['Poppins']">
+            {{ $message }}
+          </div>
+        @enderror
       </div>
-      <input type="submit" value="Check Availability" class="btn">
+      {{-- <input type="submit" value="Check Availability" class="btn"> --}}
+      <div>
+        <button href="" type="submit" value="checkAvailability" class="btn">Check Availability</button>
+      </div>
     </form>
   </div>
 
