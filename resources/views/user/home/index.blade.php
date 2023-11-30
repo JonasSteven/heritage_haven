@@ -126,28 +126,28 @@
 
         <div class="grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
           <div class="mb-12 lg:mb-0">
-            <div class="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
+            <div class="mb-6 inline-block rounded-full bg-primary-100 p-4 text-dark shadow-sm">
               <i class="amenities fa-solid fa-taxi"></i>
             </div>
             <h5 class="mb-4 text-lg font-bold">Hotel Taxi</h5>
           </div>
 
           <div class="mb-12 lg:mb-0">
-            <div class="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
+            <div class="mb-6 inline-block rounded-full bg-primary-100 p-4 text-dark shadow-sm">
               <i class="amenities fa-solid fa-wifi"></i>
             </div>
             <h5 class="mb-4 text-lg font-bold">Free Wifi</h5>
           </div>
 
           <div class="mb-12 md:mb-0">
-            <div class="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
+            <div class="mb-6 inline-block rounded-full bg-primary-100 p-4 text-dark shadow-sm">
               <i class="amenities fa-solid fa-water-ladder"></i>
             </div>
             <h5 class="mb-4 text-lg font-bold">Swimming Pool</h5>
           </div>
 
           <div class="mb-12 md:mb-0">
-            <div class="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
+            <div class="mb-6 inline-block rounded-full bg-primary-100 p-4 text-dark shadow-sm">
               <i class="amenities fa-solid fa-mug-saucer"></i>
             </div>
             <h5 class="mb-4 text-lg font-bold">Breakfast</h5>

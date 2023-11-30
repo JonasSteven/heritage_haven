@@ -11,8 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel = "icon" href = "{{ asset('assets/logo.png') }}">
-  <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+  {{-- <link href="{{ asset('css/main.css') }}" rel="stylesheet" /> --}}
 
   <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
   <title>Room & Suites</title>
@@ -31,36 +30,42 @@
   </div>
 
   <!--About us line-->
-  <div class="flex justify-center mb-10 mt-12">
+  <div class="flex justify-center mt-12">
     <div class="max-w-[700px] text-center">
-      <h2 class="subtitle mb-12 text-center text-4xl font-bold" style="font-family: Sahitya">
+      <h2 class="subtitle text-center text-4xl font-bold" style="font-family: Sahitya">
         Room & Suites
       </h2>
     </div>
   </div>
 
   <!--Room images-->
-  <div class="section">
+  <section>
+    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <ul class="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
-    @foreach ($rooms as $room)
-      <div>
-        <img src="{{ $room->roomImage }}" width="450" height="516">
-        <p class="name">{{ $room->roomType }}</p>
-        <button class="btnMore"><a href="{{ route('detail', ['id' => $room->id]) }}">Learn More</a></button>
-      </div>
-    @endforeach
-    {{-- <div>
-      <img src="/images/room2.png" width="450" height="516">
-      <p class="name">Queen Size</p>  
-      <button class="btnMore"><a href="#">Learn More</a></button>
+        @foreach ($rooms as $room)
+          <li>
+            <img src="{{ $room->roomImage }}"
+              class="h-[350px] object-cover transition duration-500 group-hover:scale-105 sm:h-[450px] sm:w-[450px]" />
+
+            <div class="relative bg-white pt-3">
+              <h3 class="text-xl text-gray-700 group-hover:underline group-hover:underline-offset-4 font-['sahitya']">
+                {{ $room->roomType }}
+              </h3>
+
+              <p class="mt-2">
+                <button class="px-4 py-2 text-white rounded-md bg-primary font-['inter']"><a
+                    href="{{ route('detail', ['id' => $room->id]) }}">Learn More</a></button>
+              </p>
+            </div>
+          </li>
+        @endforeach
+
+
+
+      </ul>
     </div>
-    <div>
-      <img src="/images/room3.png" width="450" height="516">
-      <p class="name">Standard Size</p>
-      <button class="btnMore"><a href="#">Learn More</a></button>
-    </div> --}}
-  </div>
-  <br>
+  </section>
 
   @include('user.navbar.footer')
   <script src="{{ asset('js/script.js') }}"></script>

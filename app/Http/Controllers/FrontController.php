@@ -48,4 +48,17 @@ class FrontController extends Controller
             "title" => "Booking Payment"
         ]);
     }
+
+    public function recipe(){
+        return view('user/recipe/index', [
+            "title" => "recipe"
+        ]);
+    }
+
+    public function availability(){
+        return view('user/availability/index', [
+            "title" => "availability"
+        ]);
+    }
+
 }
