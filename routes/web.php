@@ -38,3 +38,7 @@ Route::get('/about', [FrontController::class, 'about']);
 Route::get('/booking', [FrontController::class, 'booking']);
 
 Route::get('/bookingPayment', [FrontController::class, 'bookingPayment']);
+
+Route::get('/recipe', [FrontController::class, 'recipe']);
+
+Route::get('/availability', [FrontController::class, 'availability']);
