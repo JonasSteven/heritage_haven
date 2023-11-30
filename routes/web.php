@@ -39,6 +39,7 @@ Route::get('/booking/{id}', [FrontController::class, 'booking']);
 // Route::get('/booking/{id}', [FrontController::class])
 
 Route::get('/bookingPayment', [FrontController::class, 'bookingPayment']);
+Route::post('/bookingPayment', [FrontController::class, 'proccessPayment']);
 
 Route::get('/receipt', [FrontController::class, 'receipt']);
 

@@ -43,25 +43,55 @@
     <h1 class="text-2xl font-semibold">Payment</h1>
     <div class="h-[2px] w-full bg-slate-300 my-3"></div>
     <div>
-      <form action="" method="POST">
+      <form action="/bookingPayment" method="POST">
+        @csrf
+
+        <input type="hidden" name="fullName" value="{{ old('fullName', $fullName) }}">
+        <input type="hidden" name="email" value="{{ old('email', $email) }}">
+        <input type="hidden" name="countryRegion" value="{{ old('countryRegion', $countryRegion) }}">
+        <input type="hidden" name="phoneNumber" value="{{ old('phoneNumber', $phoneNumber) }}">
+        <input type="hidden" name="roomId" value="{{ old('roomId', $room->id) }}">
+        <input type="hidden" name="checkInDate" value="{{ old('checkInDate', $checkInDate) }}">
+        <input type="hidden" name="checkOutDate" value="{{ old('checkOutDate', $checkOutDate) }}">
+        <input type="hidden" name="totalGuest" value="{{ old('totalGuest', $totalGuest) }}">
+        <input type="hidden" name="totalCharges" value="{{ old('totalCharges', $totalCharges) }}">
 
         <label for="paymentMethod" class="block my-3">Choose Payment Method:</label>
-        <select id="payment" name="paymentMethod" class="md:w-[600px]  w-[100%] p-3 border rounded-md border-slate-400 ">
+        <select id="paymentMethod" name="paymentMethod" class="md:w-[600px]  w-[100%] p-3 border rounded-md border-slate-400 ">
           <option disabled selected>Select your option</option>
-          <option value="volvo">MasterCard</option>
-          <option value="saab">VisaCard</option>
+          @foreach ($payments as $payment)
+            <option value="{{ $payment->id }}" {{ old('paymentMethod') == $payment->id ? 'selected' : '' }}>{{ $payment->paymentMethod }}</option>
+          @endforeach
         </select>
+        @error('paymentMethod')
+          <div class="text-red-600 font-bold font-['Poppins']">
+            {{ $message }}
+          </div>
+        @enderror
+
         <label for="cardNumber" class="block my-3">Card Number:</label>
-        <input type="text" name="cardNumber" class="md:w-[600px]  w-[100%] rounded-md p-3 shadow-lg border border-slate-400"
-          required />
+        <input type="text" name="cardNumber" class="md:w-[600px]  w-[100%] rounded-md p-3 shadow-lg border border-slate-400" value="{{ old('cardNumber') }}">
+        @error('cardNumber')
+          <div class="text-red-600 font-bold font-['Poppins']">
+            {{ $message }}
+          </div>
+        @enderror
 
         <label for="cardName" class="block my-3">Card Holder's Name:</label>
-        <input type="text" name="cardName" class="md:w-[600px]  w-[100%] rounded-md p-3 shadow-lg border border-slate-400"
-          required />
+        <input type="text" name="cardName" class="md:w-[600px]  w-[100%] rounded-md p-3 shadow-lg border border-slate-400" value="{{ old('cardName') }}">
+        @error('cardName')
+          <div class="text-red-600 font-bold font-['Poppins']">
+            {{ $message }}
+          </div>
+        @enderror
 
         <label for="expiryDate" class="block my-3">Expiry Date:</label>
-        <input type="date" name="expiryDate" size="30" class="rounded-md p-3 shadow-lg border border-slate-400"
-          required />
+        <input type="date" name="expiryDate" size="30" class="rounded-md p-3 shadow-lg border border-slate-400" value="{{ old('expiryDate') }}">
+        @error('expiryDate')
+          <div class="text-red-600 font-bold font-['Poppins']">
+            {{ $message }}
+          </div>
+        @enderror
 
         <button type="submit"
           class="w-64 block bg-primary font-['roboto'] mt-5 p-3 text-sm text-white font-semibold">Complete Your

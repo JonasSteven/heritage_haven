@@ -2,7 +2,7 @@
 @section('content')
   
 <div class="card" style="margin:20px;">
-  <div class="card-header">Edit Banner</div>
+  <div class="card-header">Edit Gallery</div>
   <div class="card-body">
        
       <form action="{{ url('/galleries/' .$galleries->id) }}" method="post">

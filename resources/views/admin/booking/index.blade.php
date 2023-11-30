@@ -31,6 +31,7 @@
                                         <th>Check In</th>
                                         <th>Check Out</th>
                                         <th>Payment</th>
+                                        <th>Total</th>
                                         <th>Attend Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -48,6 +49,7 @@
                                         <td>{{ $item->checkInDate }}</td>
                                         <td>{{ $item->checkOutDate }}</td>
                                         <td>{{ $item->payment->paymentMethod }}</td>
+                                        <td>IDR @php echo number_format($item->totalCharges, 0, ',', '.'); @endphp</td>
                                         <td>{{ $item->attendStatus }}</td>
                                         <td class="d-flex gap-1">
                                             <form action="/bookings/{{ $item->id }}?action=checkIn"

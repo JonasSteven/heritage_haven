@@ -142,39 +142,56 @@
           <div class="relative overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full lg:py-10">
             <h1 class="text-2xl font-['sahitya'] bg-slate-100 p-2 text-center">Ready to Book?</h1>
             <div>
-              <form action="">
+              <form action="/booking/{{ $room->id }}" method="GET">
+                @csrf
+
                 <div class="box flex flex-col justify-between p-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Check In <span>*</span></p>
-                    <input type="date" class="input font-['sahitya']">
+                    <input type="date" class="input font-['sahitya']" name="checkInDate" value="{{ old('checkInDate') }}">
                   </div>
-
+                  @error('checkInDate')
+                    <div class="text-red-600 font-bold font-['Poppins']">
+                      {{ $message }}
+                    </div>
+                  @enderror
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
 
                 <div class="box flex flex-col justify-between px-5 mb-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Check Out <span>*</span></p>
-                    <input type="date" class="input font-['sahitya']">
+                    <input type="date" class="input font-['sahitya']" name="checkOutDate" value="{{ old('checkOutDate') }}">
                   </div>
+                  @error('checkOutDate')
+                    <div class="text-red-600 font-bold font-['Poppins']">
+                      {{ $message }}
+                    </div>
+                  @enderror
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
 
                 <div class="box flex-col justify-between px-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Total Guest <span>*</span></p>
-                    <select name="adults" id="" class="input font-['sahitya']">
-                      <option value="" disabled selected>Select your option</option>
-                      <option value="1">1 Person</option>
-                      <option value="2">2 People</option>
-                      <option value="3">3 People</option>
-                      <option value="4">4 People</option>
+                    <select name="totalGuest" id="" class="input font-['sahitya']">
+                      <option disabled selected>Select your option</option>
+                      <option value="1" {{ old('totalGuest') == 1 ? 'selected' : '' }}>1 Person</option>
+                      <option value="2" {{ old('totalGuest') == 2 ? 'selected' : '' }}>2 People</option>
+                      <option value="3" {{ old('totalGuest') == 3 ? 'selected' : '' }}>3 People</option>
+                      <option value="4" {{ old('totalGuest') == 4 ? 'selected' : '' }}>4 People</option>
                     </select>
                   </div>
+                  @error('totalGuest')
+                    <div class="text-red-600 font-bold font-['Poppins']">
+                      {{ $message }}
+                    </div>
+                  @enderror
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
-                <input type="submit" value="Book Now"
-                  class="bg-primary text-white px-12 py-2 mx-auto block mt-5 rounded">
+                {{-- <input type="submit" value="Book Now"
+                  class="bg-primary text-white px-12 py-2 mx-auto block mt-5 rounded"> --}}
+                <button type="submit" class="bg-primary text-white px-12 py-2 mx-auto block mt-5 rounded">Book Now</button>
               </form>
             </div>
           </div>
@@ -292,39 +309,56 @@
           <div class="relative overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full lg:py-10">
             <h1 class="text-2xl font-['sahitya'] bg-slate-100 p-2 text-center">Ready to Book?</h1>
             <div>
-              <form action="">
+              <form action="/booking/{{ $room->id }}" method="GET">
+                @csrf
+                
                 <div class="box flex flex-col justify-between p-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Check In <span>*</span></p>
-                    <input type="date" class="input font-['sahitya']">
+                    <input type="date" class="input font-['sahitya']" name="checkInDate" value="{{ old('checkInDate') }}">
                   </div>
-
+                  @error('checkInDate')
+                    <div class="text-red-600 font-bold font-['Poppins']">
+                      {{ $message }}
+                    </div>
+                  @enderror
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
 
                 <div class="box flex flex-col justify-between px-5 mb-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Check Out <span>*</span></p>
-                    <input type="date" class="input font-['sahitya']">
+                    <input type="date" class="input font-['sahitya']" name="checkOutDate" value="{{ old('checkOutDate') }}">
                   </div>
+                  @error('checkOutDate')
+                    <div class="text-red-600 font-bold font-['Poppins']">
+                      {{ $message }}
+                    </div>
+                  @enderror
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
 
                 <div class="box flex-col justify-between px-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Total Guest <span>*</span></p>
-                    <select name="adults" id="" class="input font-['sahitya']">
-                      <option value="" disabled selected>Select your option</option>
-                      <option value="1">1 Person</option>
-                      <option value="2">2 People</option>
-                      <option value="3">3 People</option>
-                      <option value="4">4 People</option>
+                    <select name="totalGuest" id="" class="input font-['sahitya']">
+                      <option disabled selected>Select your option</option>
+                      <option value="1" {{ old('totalGuest') == 1 ? 'selected' : '' }}>1 Person</option>
+                      <option value="2" {{ old('totalGuest') == 2 ? 'selected' : '' }}>2 People</option>
+                      <option value="3" {{ old('totalGuest') == 3 ? 'selected' : '' }}>3 People</option>
+                      <option value="4" {{ old('totalGuest') == 4 ? 'selected' : '' }}>4 People</option>
                     </select>
                   </div>
+                  @error('totalGuest')
+                    <div class="text-red-600 font-bold font-['Poppins']">
+                      {{ $message }}
+                    </div>
+                  @enderror
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
-                <input type="submit" value="Book Now"
-                  class="bg-primary text-white px-12 py-2 mx-auto block mt-5 rounded">
+                {{-- <input type="submit" value="Book Now"
+                  class="bg-primary text-white px-12 py-2 mx-auto block mt-5 rounded"> --}}
+                <button type="submit" class="bg-primary text-white px-12 py-2 mx-auto block mt-5 rounded">Book Now</button>
               </form>
             </div>
           </div>
@@ -421,39 +455,56 @@
           <div class="relative overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full lg:py-10">
             <h1 class="text-2xl font-['sahitya'] bg-slate-100 p-2 text-center">Ready to Book?</h1>
             <div>
-              <form action="/booking" method="GET">
+              <form action="/booking/{{ $room->id }}" method="GET">
+                @csrf
+                
                 <div class="box flex flex-col justify-between p-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Check In <span>*</span></p>
-                    <input type="date" class="input font-['sahitya']" name="checkIn" required>
+                    <input type="date" class="input font-['sahitya']" name="checkInDate" value="{{ old('checkInDate') }}">
                   </div>
-
+                  @error('checkInDate')
+                    <div class="text-red-600 font-bold font-['Poppins']">
+                      {{ $message }}
+                    </div>
+                  @enderror
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
 
                 <div class="box flex flex-col justify-between px-5 mb-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Check Out <span>*</span></p>
-                    <input type="date" class="input font-['sahitya']" name="checkOut" required>
+                    <input type="date" class="input font-['sahitya']" name="checkOutDate" value="{{ old('checkOutDate') }}">
                   </div>
+                  @error('checkOutDate')
+                    <div class="text-red-600 font-bold font-['Poppins']">
+                      {{ $message }}
+                    </div>
+                  @enderror
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
 
                 <div class="box flex-col justify-between px-5">
                   <div class="flex justify-between">
                     <p class="font-['sahitya'] text-xl">Total Guest <span>*</span></p>
-                    <select name="guest" id="" class="input font-['sahitya']" required>
-                      <option value="" disabled selected>Select your option</option>
-                      <option value="1">1 Person</option>
-                      <option value="2">2 People</option>
-                      <option value="3">3 People</option>
-                      <option value="4">4 People</option>
+                    <select name="totalGuest" id="" class="input font-['sahitya']">
+                      <option disabled selected>Select your option</option>
+                      <option value="1" {{ old('totalGuest') == 1 ? 'selected' : '' }}>1 Person</option>
+                      <option value="2" {{ old('totalGuest') == 2 ? 'selected' : '' }}>2 People</option>
+                      <option value="3" {{ old('totalGuest') == 3 ? 'selected' : '' }}>3 People</option>
+                      <option value="4" {{ old('totalGuest') == 4 ? 'selected' : '' }}>4 People</option>
                     </select>
                   </div>
+                  @error('totalGuest')
+                    <div class="text-red-600 font-bold font-['Poppins']">
+                      {{ $message }}
+                    </div>
+                  @enderror
                   <div class="h-[2px] w-full bg-slate-200 my-2"></div>
                 </div>
-                <input type="submit" value="Book Now"
-                  class="bg-primary text-white px-12 py-2 mx-auto block mt-5 rounded">
+                {{-- <input type="submit" value="Book Now"
+                  class="bg-primary text-white px-12 py-2 mx-auto block mt-5 rounded"> --}}
+                <button type="submit" class="bg-primary text-white px-12 py-2 mx-auto block mt-5 rounded">Book Now</button>
               </form>
             </div>
           </div>

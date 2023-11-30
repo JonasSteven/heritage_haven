@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Gallery;
 use App\Models\Room;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -45,11 +47,24 @@ class FrontController extends Controller
 
     public function booking(Request $request, Room $id)
     {
+        $rules = [
+            'checkInDate' => 'required',
+            'checkOutDate' => 'required',
+            'totalGuest' => 'required',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
         // $room = Room::where('id', $id);
         // dd($room->id);
         // $room = $id;
         // dd($room);
         // dd($request->room);
+
+        
 
         return view('user.booking.booking', [
             "title" => "Booking",
@@ -88,15 +103,53 @@ class FrontController extends Controller
             'checkInDate' => $request->checkInDate,
             'checkOutDate' => $request->checkOutDate,
             'totalGuest' => $request->totalGuest,
-            'totalCharges' => $request->totalCharges
+            'totalCharges' => $request->totalCharges,
+            'payments' => Payment::all()
         ]);
     }
 
-    public function receipt()
+    public function receipt(){
+        return view('user.receipt.index');
+    }
+
+    public function proccessPayment(Request $request)
     {
-        return view('user/receipt/index', [
-            "title" => "Receipt"
-        ]);
+        $rules = [
+            'paymentMethod' => 'required',
+            'cardNumber' => 'required|numeric',
+            'cardName' => 'required',
+            'expiryDate' => 'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if($validator->fails()){
+            return back()->withErrors($validator)->withInput();
+        }
+
+        if($booking = Booking::create([
+            'fullName' => $request->fullName,
+            'email' => $request->email,
+            'country' => $request->countryRegion,
+            'phoneNumber' => $request->phoneNumber,
+            'cardHolderName' => $request->cardName,
+            'expiryDate' => $request->expiryDate,
+            'payment_id' => $request->paymentMethod,
+            'checkInDate' => $request->checkInDate,
+            'checkOutDate' => $request->checkOutDate,
+            'totalGuest' => $request->totalGuest,
+            'room_id' => $request->roomId,
+            'totalCharges' => $request->totalCharges,
+            'attendStatus' => '-',
+        ])){
+            Room::where('id', $request->roomId)->decrement('roomQuantity', 1);
+        } 
+
+        // return view('user/receipt/index', [
+        //     "title" => "Receipt",
+        //     'booking' => $booking
+        // ]);
+        return redirect('/receipt')->with('booking', $booking);
     }
 
 

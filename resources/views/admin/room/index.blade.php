@@ -40,7 +40,7 @@
                                         <td><img src="{{ $item->roomImage }}" width="100px"></td>
                                         <td>{{ $item->roomType }}</td>
                                         <td>{{ $item->roomDesc }}</td>
-                                        <td>{{ $item->roomPrice }}</td>
+                                        <td>IDR @php echo number_format($item->roomPrice, 0, ',', '.'); @endphp</td>
                                         <td>{{ $item->roomQuantity }}</td>
   
                                         <td>
