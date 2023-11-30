@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +18,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/home', function () {
+    return view('admin.home.index');
+});
+Route::resource('/rooms', RoomController::class);
+Route::resource('/galleries', GalleryController::class);
+Route::resource('/payments', PaymentController::class);
+Route::resource('/bookings', BookingController::class);
+
 Route::get('/', [FrontController::class, 'home']);
+
+Route::get('/room', [FrontController::class, 'room']);
+Route::get('/room/{id}', [FrontController::class, 'roomDetail'])->name('detail');
 
 Route::get('/gallery', [FrontController::class, 'gallery']);
 
@@ -23,3 +38,9 @@ Route::get('/about', [FrontController::class, 'about']);
 Route::get('/booking', [FrontController::class, 'booking']);
 
 Route::get('/bookingPayment', [FrontController::class, 'bookingPayment']);
+
+Route::get('/recipe', [FrontController::class, 'recipe']);
+
+Route::get('/availability', [FrontController::class, 'availability']);
+
+Route::get('/login', [FrontController::class, 'login']);
