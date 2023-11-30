@@ -49,9 +49,9 @@ class FrontController extends Controller
         ]);
     }
 
-    public function recipe(){
-        return view('user/recipe/index', [
-            "title" => "recipe"
+    public function receipt(){
+        return view('user/receipt/index', [
+            "title" => "Receipt"
         ]);
     }
 

@@ -39,6 +39,6 @@ Route::get('/booking', [FrontController::class, 'booking']);
 
 Route::get('/bookingPayment', [FrontController::class, 'bookingPayment']);
 
-Route::get('/recipe', [FrontController::class, 'recipe']);
+Route::get('/receipt', [FrontController::class, 'receipt']);
 
 Route::get('/availability', [FrontController::class, 'availability']);

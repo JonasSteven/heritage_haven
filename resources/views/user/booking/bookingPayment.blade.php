@@ -58,7 +58,7 @@
           required />
 
         <button type="submit"
-          class="w-64 block bg-[#8e732d] font-['roboto'] mt-5 p-3 text-sm text-white font-semibold">Complete Your
+          class="w-64 block bg-primary font-['roboto'] mt-5 p-3 text-sm text-white font-semibold">Complete Your
           Reservation</button>
       </form>
     </div>
