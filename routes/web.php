@@ -3,8 +3,10 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +20,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('admin.home.index');
+Route::prefix('admin')->group(function () {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/', [UserController::class, 'index']);
+
+        Route::resource('/room', RoomController::class);
+        Route::resource('/gallery', GalleryController::class);
+        Route::resource('/payment', PaymentController::class);
+        Route::resource('/booking', BookingController::class);
+
+        Route::post('/logout', [LoginController::class, 'logout']);
+    });
+
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/login', [LoginController::class, 'index']);
+        Route::post('/login', [LoginController::class, 'login'])->name('login');
+    });
 });
-Route::resource('/rooms', RoomController::class);
-Route::resource('/galleries', GalleryController::class);
-Route::resource('/payments', PaymentController::class);
-Route::resource('/bookings', BookingController::class);
 
 Route::get('/', [FrontController::class, 'home']);
 

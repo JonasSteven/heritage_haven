@@ -41,7 +41,7 @@ class RoomController extends Controller
         $input = $request->all();
         Room::create($input);
 
-        return redirect('/rooms')->with('success', 'Room Added !!!');
+        return redirect('/admin/room')->with('success', 'Room Added !!!');
     }
 
     /**
@@ -86,7 +86,7 @@ class RoomController extends Controller
         $input = $request->all();
         $rooms->update($input);
 
-        return redirect('/rooms')->with('success', 'Room Updated !!!');
+        return redirect('/admin/room')->with('success', 'Room Updated !!!');
     }
 
     /**
@@ -96,6 +96,6 @@ class RoomController extends Controller
     {
         Room::destroy($id);
 
-        return redirect('/rooms')->with('success', 'Room Deleted !!!');
+        return redirect('/admin/room')->with('success', 'Room Deleted !!!');
     }
 }

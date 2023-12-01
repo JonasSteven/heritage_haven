@@ -5,7 +5,7 @@
   <div class="card-header">Create New Gallery</div>
   <div class="card-body">
        
-      <form action="{{ url('/galleries') }}" method="post">
+      <form action="{{ url('/admin/gallery') }}" method="post">
         {!! csrf_field() !!}
         <label>Image Name</label></br>
         <input type="text" name="imageName" id="imageName" class="form-control @error('imageName') is-invalid @enderror" value="{{ old('imageName') }}">
@@ -21,7 +21,7 @@
         <br>
         <input type="submit" value="Save" class="btn btn-success"></br>
       </form></br>
-      <a class="btn btn-primary" href="{{ url('/galleries') }}"> Back</a>
+      <a class="btn btn-primary" href="{{ url('/admin/gallery') }}"> Back</a>
     
   </div>
 </div>

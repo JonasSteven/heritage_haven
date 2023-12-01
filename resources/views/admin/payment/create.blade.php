@@ -5,7 +5,7 @@
   <div class="card-header">Create New Payment</div>
   <div class="card-body">
        
-      <form action="{{ url('/payments') }}" method="post">
+      <form action="{{ url('/admin/payment') }}" method="post">
         {!! csrf_field() !!}
         <label>Payment Method</label></br>
         <input type="text" name="paymentMethod" id="paymentMethod" class="form-control @error('paymentMethod') is-invalid @enderror" value="{{ old('paymentMethod') }}">
@@ -15,7 +15,7 @@
         <br>
         <input type="submit" value="Save" class="btn btn-success"></br>
       </form></br>
-      <a class="btn btn-primary" href="{{ url('/payments') }}"> Back</a>
+      <a class="btn btn-primary" href="{{ url('/admin/payment') }}"> Back</a>
     
   </div>
 </div>

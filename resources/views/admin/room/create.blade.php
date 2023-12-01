@@ -5,7 +5,7 @@
   <div class="card-header">Create New Room</div>
   <div class="card-body">
        
-      <form action="{{ url('/rooms') }}" method="post">
+      <form action="{{ url('/admin/room') }}" method="post">
         {!! csrf_field() !!}
         <label>Room Type</label></br>
         <input type="text" name="roomType" id="roomType" class="form-control @error('roomType') is-invalid @enderror" value="{{ old('roomType') }}">
@@ -39,7 +39,7 @@
         <br>
         <input type="submit" value="Save" class="btn btn-success"></br>
       </form></br>
-      <a class="btn btn-primary" href="{{ url('/rooms') }}"> Back</a>
+      <a class="btn btn-primary" href="{{ url('/admin/room') }}"> Back</a>
     
   </div>
 </div>

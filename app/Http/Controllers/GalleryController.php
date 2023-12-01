@@ -38,7 +38,7 @@ class GalleryController extends Controller
         $input = $request->all();
         Gallery::create($input);
 
-        return redirect('/galleries')->with('success', 'Gallery Added !!!');
+        return redirect('/admin/gallery')->with('success', 'Gallery Added !!!');
     }
 
     /**
@@ -80,7 +80,7 @@ class GalleryController extends Controller
         $input = $request->all();
         $galleries->update($input);
 
-        return redirect('/galleries')->with('success', 'Gallery Updated !!!');
+        return redirect('/admin/gallery')->with('success', 'Gallery Updated !!!');
     }
 
     /**
@@ -90,6 +90,6 @@ class GalleryController extends Controller
     {
         Gallery::destroy($id);
 
-        return redirect('/galleries')->with('success', 'Gallery Deleted !!!');
+        return redirect('/admin/gallery')->with('success', 'Gallery Deleted !!!');
     }
 }

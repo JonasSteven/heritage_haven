@@ -8,7 +8,7 @@
                         <h2>Gallery CRUD (Create, Read, Update and Delete)</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/galleries/create') }}" class="btn btn-success btn-sm" title="Add New Gallery">
+                        <a href="{{ url('/admin/gallery/create') }}" class="btn btn-success btn-sm" title="Add New Gallery">
                             Add New Gallery
                         </a>
                         <br/>
@@ -38,10 +38,10 @@
                                         <td>{{ $item->imageName }}</td>
   
                                         <td>
-                                            <a href="{{ url('/galleries/' . $item->id) }}" title="View Gallery"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/galleries/' . $item->id . '/edit') }}" title="Edit Gallery"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/gallery/' . $item->id) }}" title="View Gallery"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/admin/gallery/' . $item->id . '/edit') }}" title="Edit Gallery"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
   
-                                            <form method="POST" action="{{ url('/galleries' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <form method="POST" action="{{ url('/admin/gallery' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Gallery" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>

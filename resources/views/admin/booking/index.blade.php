@@ -52,14 +52,14 @@
                                         <td>IDR @php echo number_format($item->totalCharges, 0, ',', '.'); @endphp</td>
                                         <td>{{ $item->attendStatus }}</td>
                                         <td class="d-flex gap-1">
-                                            <form action="/bookings/{{ $item->id }}?action=checkIn"
+                                            <form action="/admin/booking/{{ $item->id }}?action=checkIn"
                                                 method="POST">
                                                 @csrf
                                                 @method('PUT')
                                                 <button type="submit" class="btn btn-success btn-sm"><i
                                                         class="fa-solid fa-check"></i></button>
                                             </form>
-                                            <form action="/bookings/{{ $item->id }}?action=checkOut"
+                                            <form action="/admin/booking/{{ $item->id }}?action=checkOut"
                                                 method="POST">
                                                 @csrf
                                                 @method('PUT')

@@ -8,7 +8,7 @@
                         <h2>Room CRUD (Create, Read, Update and Delete)</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/rooms/create') }}" class="btn btn-success btn-sm" title="Add New Room">
+                        <a href="{{ url('/admin/room/create') }}" class="btn btn-success btn-sm" title="Add New Room">
                             Add New Room
                         </a>
                         <br/>
@@ -44,10 +44,10 @@
                                         <td>{{ $item->roomQuantity }}</td>
   
                                         <td>
-                                            <a href="{{ url('/rooms/' . $item->id) }}" title="View Room"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/rooms/' . $item->id . '/edit') }}" title="Edit Room"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/room/' . $item->id) }}" title="View Room"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/admin/room/' . $item->id . '/edit') }}" title="Edit Room"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
   
-                                            <form method="POST" action="{{ url('/rooms' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <form method="POST" action="{{ url('/admin/room' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Room" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>

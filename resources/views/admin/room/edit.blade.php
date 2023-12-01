@@ -5,7 +5,7 @@
   <div class="card-header">Edit Room</div>
   <div class="card-body">
        
-      <form action="{{ url('/rooms/' .$rooms->id) }}" method="post">
+      <form action="{{ url('/admin/room/' .$rooms->id) }}" method="post">
         {!! csrf_field() !!}
         @method("PATCH")
         <input type="hidden" name="id" id="id" value="{{$rooms->id}}" id="id" />
@@ -41,7 +41,7 @@
         <br>
         <input type="submit" value="Update" class="btn btn-success"></br>
     </form></br>
-    <a class="btn btn-primary" href="{{ url('/rooms') }}"> Back</a>
+    <a class="btn btn-primary" href="{{ url('/admin/room') }}"> Back</a>
     
   </div>
 </div>

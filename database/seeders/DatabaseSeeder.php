@@ -9,6 +9,7 @@ use App\Models\Gallery;
 use App\Models\Payment;
 use App\Models\Room;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -104,6 +105,11 @@ class DatabaseSeeder extends Seeder
             'imageName' => 'Standard Room',
             'image' => 'http://drive.google.com/uc?export=view&id=1cPtrDfUZFEYmyx-OR8QBDULGwOVxYFWm'
         ]);
-
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'username' => 'admin123',
+            'password' => 'admin123'
+        ]);
     }
 }

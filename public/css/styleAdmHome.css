@@ -64,14 +64,14 @@ nav ul li a{
 }
 
 nav ul li form .logout-btn{
-  color: white;
+  color: black;
   text-decoration: none;
   line-height: 70px;
   font-size: 18px;
   padding-right: 15px;
   padding-left: 15px;
   border: none;
-  background: #065590;
+  background: white;
 }
 
 nav ul li form .logout-btn:hover{

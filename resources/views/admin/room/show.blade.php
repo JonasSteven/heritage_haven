@@ -9,7 +9,7 @@
     <p class="card-text">Room Description : {{ $rooms->roomDesc }}</p>
     <p class="card-text">Room Price : IDR @php echo number_format($rooms->roomPrice, 0, ',', '.'); @endphp</p>
     <p class="card-text">Room Quantity : {{ $rooms->roomQuantity }}</p>
-    <a class="btn btn-primary" href="{{ url('/rooms') }}"> Back</a>
+    <a class="btn btn-primary" href="{{ url('/admin/room') }}"> Back</a>
     </hr>
   </div>
 </div>

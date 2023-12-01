@@ -49,6 +49,9 @@
               class="h-[350px] object-cover transition duration-500 group-hover:scale-105 sm:h-[450px] sm:w-[450px]" />
 
             <div class="relative bg-white pt-3">
+              <dd class="font-semibold text-dark font-['sahitya'] text-xl my-1">
+                IDR @php echo number_format($room->roomPrice, 0, ',', '.'); @endphp
+              </dd>
               <h3 class="text-xl text-gray-700 group-hover:underline group-hover:underline-offset-4 font-['sahitya']">
                 {{ $room->roomType }}
               </h3>

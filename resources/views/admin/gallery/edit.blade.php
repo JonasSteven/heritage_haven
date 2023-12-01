@@ -5,7 +5,7 @@
   <div class="card-header">Edit Gallery</div>
   <div class="card-body">
        
-      <form action="{{ url('/galleries/' .$galleries->id) }}" method="post">
+      <form action="{{ url('/admin/gallery/' .$galleries->id) }}" method="post">
         {!! csrf_field() !!}
         @method("PATCH")
         <input type="hidden" name="id" id="id" value="{{$galleries->id}}" id="id" />
@@ -23,7 +23,7 @@
         <br>
         <input type="submit" value="Update" class="btn btn-success"></br>
     </form></br>
-    <a class="btn btn-primary" href="{{ url('/galleries') }}"> Back</a>
+    <a class="btn btn-primary" href="{{ url('/admin/gallery') }}"> Back</a>
     
   </div>
 </div>
