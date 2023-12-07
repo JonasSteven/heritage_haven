@@ -48,8 +48,8 @@ class FrontController extends Controller
     public function booking(Request $request, Room $id)
     {
         $rules = [
-            'checkInDate' => 'required',
-            'checkOutDate' => 'required',
+            'checkInDate' => 'required|date|after:today',
+            'checkOutDate' => 'required|date|after:checkInDate',
             'totalGuest' => 'required',
         ];
 
