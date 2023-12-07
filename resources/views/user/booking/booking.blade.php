@@ -142,7 +142,7 @@
             <p class="text-lg">IDR @php currency($totalCharges) @endphp</p>
           </div>
 
-          <button type="submit" class="w-full bg-[#8e732d] font-['inter'] mt-5 p-2 text-white font-semibold" id="submit">Book Now</button>
+          <button type="submit" class="w-full bg-primary font-['inter'] mt-5 p-2 text-white font-semibold" id="submit">Book Now</button>
 
         </div>
       </div>

@@ -116,7 +116,7 @@ class FrontController extends Controller
     {
         $rules = [
             'paymentMethod' => 'required',
-            'cardNumber' => 'required|numeric',
+            'cardNumber' => 'required',
             'cardName' => 'required',
             'expiryDate' => 'required'
         ];
