@@ -45,7 +45,7 @@
 
         @foreach ($rooms as $room)
           <li>
-            <img src="{{ $room->roomImage }}"
+            <img src="{{ asset('storage/images/rooms/' . $room->roomImage) }}"
               class="h-[350px] object-cover transition duration-500 group-hover:scale-105 sm:h-[450px] sm:w-[450px]" />
 
             <div class="relative bg-white pt-3">

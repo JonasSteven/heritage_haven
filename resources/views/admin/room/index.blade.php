@@ -37,7 +37,7 @@
                                 @foreach($rooms as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td><img src="{{ $item->roomImage }}" width="100px"></td>
+                                        <td><img src="{{ asset('storage/images/rooms/' . $item->roomImage) }}" width="100px"></td>
                                         <td>{{ $item->roomType }}</td>
                                         <td>{{ $item->roomDesc }}</td>
                                         <td>IDR @php echo number_format($item->roomPrice, 0, ',', '.'); @endphp</td>

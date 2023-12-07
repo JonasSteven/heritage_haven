@@ -24,7 +24,7 @@
       <div class="max-w-screen px-4 py-8 mx-auto sm:py-0 sm:mt-5 sm:px-6 lg:px-8 bg-gray-100">
         <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
           <div class="grid p-6 rounded place-content-center ">
-            <img src="{{ $room->roomImage }}" alt="">
+            <img src="{{ asset('storage/images/rooms/' . $room->roomImage) }}" alt="">
           </div>
 
           <div class="lg:col-span-2 lg:py-8">

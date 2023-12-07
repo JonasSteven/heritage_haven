@@ -43,7 +43,7 @@
           <div class="mx-auto max-w-screen-xl px-4 py-1 sm:px-6 sm:py-1 lg:px-8">
             <div class="mt-8 grid grid-cols-1 gap-1 lg:grid-cols-2 lg:gap-0">
               <div class="relative h-64 overflow-hidden sm:h-80 lg:h-full">
-                <img src="{{ $room->roomImage }}" width="350" alt="img1" />
+                <img src="{{ asset('storage/images/rooms/' . $room->roomImage) }}" width="350" alt="img1" />
               </div>
 
               <div>
@@ -158,7 +158,7 @@
           <div class="mx-auto max-w-screen-xl px-4 py-1 sm:px-6 sm:py-1 lg:px-8">
             <div class="mt-8 grid grid-cols-1 gap-1 lg:grid-cols-2 lg:gap-0">
               <div class="relative h-64 overflow-hidden sm:h-80 lg:h-full">
-                <img src="{{ $room->roomImage }}" width="350" alt="img1" />
+                <img src="{{ asset('storage/images/rooms/' . $room->roomImage) }}" width="350" alt="img1" />
               </div>
 
               <div>

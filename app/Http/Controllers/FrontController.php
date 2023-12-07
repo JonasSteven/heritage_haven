@@ -160,9 +160,9 @@ class FrontController extends Controller
         // dd($rooms->id);
 
         $rules = [
-            'checkInDate' => 'required',
-            'checkOutDate' => 'required',
-            'totalGuest' => 'required'
+            'checkInDate' => 'required|date|after:today',
+            'checkOutDate' => 'required|date|after:checkInDate',
+            'totalGuest' => 'required',
         ];
 
         $validator = Validator::make($request->all(), $rules);

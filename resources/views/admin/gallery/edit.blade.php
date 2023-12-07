@@ -5,7 +5,7 @@
   <div class="card-header">Edit Gallery</div>
   <div class="card-body">
        
-      <form action="{{ url('/admin/gallery/' .$galleries->id) }}" method="post">
+      <form action="{{ url('/admin/gallery/' .$galleries->id) }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         @method("PATCH")
         <input type="hidden" name="id" id="id" value="{{$galleries->id}}" id="id" />
@@ -15,8 +15,10 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
         <br>
-        <label>Image URL</label></br>
-        <input type="url" name="image" id="image" value="{{ old('image', $galleries->image) }}" class="form-control @error('image') is-invalid @enderror">
+        <br>
+        <img id="image-preview" alt="image preview" width="150px" src="{{ asset('storage/images/galleries/' . $galleries->image) }}"/>
+        <br/>
+        <input type="file" id="image-source" onchange="previewImage();" name="image" class="form-control" @error('image') is-invalid @enderror>
         @error('image')
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
@@ -27,5 +29,17 @@
     
   </div>
 </div>
+
+<script>
+  function previewImage() {
+      document.getElementById("image-preview").style.display = "block";
+      var oFReader = new FileReader();
+       oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
+   
+      oFReader.onload = function(oFREvent) {
+        document.getElementById("image-preview").src = oFREvent.target.result;
+      };
+    };
+</script>
   
 @endsection

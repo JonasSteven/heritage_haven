@@ -34,7 +34,7 @@
                                 @foreach($galleries as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td><img src="{{ $item->image }}" width="100px"></td>
+                                        <td><img src="{{ asset('storage/images/galleries/' . $item->image) }}" width="100px"></td>
                                         <td>{{ $item->imageName }}</td>
   
                                         <td>

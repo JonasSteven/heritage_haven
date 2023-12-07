@@ -193,7 +193,7 @@
           <div class="swiper-slide slide">
             <div class="image">
               <span class="price">IDR @php currency($room->roomPrice) @endphp/Night</span>
-              <img src="{{ $room->roomImage }}" alt="{{ $room->roomType }}">
+              <img src="{{ asset('storage/images/rooms/' . $room->roomImage) }}" alt="{{ $room->roomType }}">
             </div>
             <div class="content">
               <h3>{{ $room->roomType }}</h3>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -32,11 +33,19 @@ class GalleryController extends Controller
     {
         $request->validate([
             'imageName' => 'required',
-            'image' => 'required|url',
+            'image' => 'required|image|max:5000',
         ]);
 
-        $input = $request->all();
-        Gallery::create($input);
+        $gallery = new Gallery($request->all());
+
+        $fileName = $request->image->getClientOriginalName();
+        $path = $request->image->storeAs('images/galleries', $fileName, 'public');
+
+        $gallery->image = $fileName;
+        $gallery->save();
+
+        // $input = $request->all();
+        // Gallery::create($input);
 
         return redirect('/admin/gallery')->with('success', 'Gallery Added !!!');
     }
@@ -71,14 +80,32 @@ class GalleryController extends Controller
     public function update(Request $request, string $id)
     {
         $galleries = Gallery::find($id);
+        $fileName = '';
 
         $request->validate([
             'imageName' => 'required',
-            'image' => 'required|url',
+            'image' => 'image|max:5000',
         ]);
 
-        $input = $request->all();
-        $galleries->update($input);
+        if ($request->hasFile('image')) {
+            $fileName = $request->image->getClientOriginalName();
+            $path = $request->image->storeAs('images/galleries', $fileName, 'public');
+
+            if ($galleries->image) {
+                // dd($rooms->roomImage);
+                Storage::delete('public/images/galleries/' . $galleries->image);
+            }
+        }
+        else {
+            $fileName = $galleries->image;
+        }
+
+        $galleries->imageName = $request->imageName;
+        $galleries->image = $fileName;
+        $galleries->save();
+
+        // $input = $request->all();
+        // $galleries->update($input);
 
         return redirect('/admin/gallery')->with('success', 'Gallery Updated !!!');
     }
@@ -88,7 +115,13 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        Gallery::destroy($id);
+        $galleries = Gallery::find($id);
+
+        if ($galleries->image) {
+            Storage::delete('public/images/galleries/' . $galleries->image);
+        }
+
+        $galleries->delete();
 
         return redirect('/admin/gallery')->with('success', 'Gallery Deleted !!!');
     }

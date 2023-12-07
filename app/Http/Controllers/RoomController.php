@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RoomController extends Controller
 {
@@ -32,14 +33,22 @@ class RoomController extends Controller
     {
         $request->validate([
             'roomType' => 'required',
-            'roomImage' => 'required|url',
+            'roomImage' => 'required|image|max:5000',
             'roomDesc' => 'required',
             'roomPrice' => 'required',
             'roomQuantity' => 'required',
         ]);
 
-        $input = $request->all();
-        Room::create($input);
+        $room = new Room($request->all());
+
+        $fileName = $request->roomImage->getClientOriginalName();
+        $path = $request->roomImage->storeAs('images/rooms', $fileName, 'public');
+
+        $room->roomImage = $fileName;
+        $room->save();
+
+        // $input = $request->all();
+        // Room::create($input);
 
         return redirect('/admin/room')->with('success', 'Room Added !!!');
     }
@@ -74,17 +83,38 @@ class RoomController extends Controller
     public function update(Request $request, $id)
     {
         $rooms = Room::find($id);
+        $fileName = '';
 
         $request->validate([
             'roomType' => 'required',
-            'roomImage' => 'required|url',
+            'roomImage' => 'image|max:5000',
             'roomDesc' => 'required',
             'roomPrice' => 'required',
             'roomQuantity' => 'required',
         ]);
 
-        $input = $request->all();
-        $rooms->update($input);
+        if ($request->hasFile('roomImage')) {
+            $fileName = $request->roomImage->getClientOriginalName();
+            $path = $request->roomImage->storeAs('images/rooms', $fileName, 'public');
+
+            if ($rooms->roomImage) {
+                // dd($rooms->roomImage);
+                Storage::delete('public/images/rooms/' . $rooms->roomImage);
+            }
+        }
+        else {
+            $fileName = $rooms->roomImage;
+        }
+
+        $rooms->roomType = $request->roomType;
+        $rooms->roomImage = $fileName;
+        $rooms->roomDesc = $request->roomDesc;
+        $rooms->roomPrice = $request->roomPrice;
+        $rooms->roomQuantity = $request->roomQuantity;
+        $rooms->save();
+
+        // $input = $request->all();
+        // $rooms->update($input);
 
         return redirect('/admin/room')->with('success', 'Room Updated !!!');
     }
@@ -94,7 +124,13 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
-        Room::destroy($id);
+        $rooms = Room::find($id);
+
+        if ($rooms->roomImage) {
+            Storage::delete('public/images/rooms/' . $rooms->roomImage);
+        }
+
+        $rooms->delete();
 
         return redirect('/admin/room')->with('success', 'Room Deleted !!!');
     }

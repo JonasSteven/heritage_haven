@@ -35,7 +35,7 @@
       <div class="w-full p-2 md:p-2 sm:mt-2 md:mt-2 lg:mt-2 grid">
         <img
           class="block h-full w-full rounded-lg object-cover object-center hover:scale-105 transition-all duration-150"
-          src="{{ $gallery->image }}" alt="">
+          src="{{ asset('storage/images/galleries/' . $gallery->image) }}" alt="">
         <p class="text-base sm:mt-1 md:mt-1 font-semibold mt-1">{{ $gallery->imageName }}</p>
       </div>
     @endforeach

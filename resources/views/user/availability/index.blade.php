@@ -23,7 +23,7 @@
           @if ($room->roomQuantity > 0)
             <div class="block rounded-lg p-4 shadow-xl shadow-indigo-100">
 
-              <img alt="Home" src="{{ $room->roomImage }}" />
+              <img alt="Home" src="{{ asset('storage/images/rooms/' . $room->roomImage) }}" />
     
               <div class="mt-2">
                 <dl>
@@ -113,7 +113,7 @@
           @else
             <div class="block rounded-lg p-4 shadow-xl shadow-indigo-100">
 
-              <img alt="Home" src="{{ $room->roomImage }}" />
+              <img alt="Home" src="{{ asset('storage/images/rooms/' . $room->roomImage) }}" />
     
               <div class="mt-2">
                 <dl>
